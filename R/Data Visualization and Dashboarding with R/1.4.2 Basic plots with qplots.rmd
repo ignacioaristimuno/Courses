@@ -1,0 +1,38 @@
+---
+title: "1.4 R Markdown"
+author: "Ignacio Aristimuño"
+date: "9/7/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Qplots and closing thoughts
+
+#### 1. Importing dataset
+
+```{r cars}
+df = mtcars
+head(df)
+```
+
+#### 2. Qplots from ggplot2
+
+Qplots are easy and fast ggplot2 visualizations but typed similarly to R base plot syntax.
+
+```{r plot1, echo=TRUE}
+library(ggplot2)
+
+qplot(x = mpg, data = df, geom = "histogram", bins = 5, main = "Histogram from mtcars", xlab = "Miles per Gallon")
+
+qplot(x = mpg, data = df, geom = "density", main = "Density plot from mtcars", xlab = "Miles per Gallon")
+
+qplot(x = mpg, data = df, geom = "boxplot", main = "Boxplot from mtcars", xlab = "Miles per Gallon")
+
+qplot(x = wt, y = mpg, data = df, geom = "point", main = "Scatterplot from mtcars", xlab = "weight", ylab = "Miles per Gallon")
+
+```
+
+Note that the `echo = TRUE` parameter was added to the code chunk for printing of the R code that generated the plot.
